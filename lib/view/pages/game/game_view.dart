@@ -2,9 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:sliding_puzzle/models/move_to.dart';
+import 'package:sliding_puzzle/services/local_storage.dart';
 import 'package:sliding_puzzle/services/repositories_impl/images_repository_impl.dart';
+import 'package:sliding_puzzle/view/global/enum.dart';
 import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/background.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/game_buttons.dart';
@@ -15,12 +19,43 @@ import 'package:sliding_puzzle/view/pages/game/widgets/winner_dialog.dart';
 // import 'package:sliding_puzzle/view/utils/responsive.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_puzzle/view/pages/settings/setting_screen.dart';
+import 'package:sliding_puzzle/view/widget/custom_card.dart';
+import 'package:sliding_puzzle/view/widget/custom_text.dart';
 
 import '../../global/widgets/my_icon_button.dart';
 
-class GameView extends StatelessWidget {
+class GameView extends StatefulWidget {
   final int page;
   const GameView({Key? key, required this.page}) : super(key: key);
+
+  @override
+  State<GameView> createState() => _GameViewState();
+}
+
+class _GameViewState extends State<GameView> {
+  Map<String, dynamic> moves = {
+    "three_three": 0,
+    "four_four": 0,
+    "five_five": 0,
+    "six_siz": 0
+  };
+  int xCount = 3;
+
+  @override
+  void initState() {
+    getBestMove();
+    super.initState();
+  }
+
+  void getBestMove() {
+    if (widget.page == 0) {
+      if (LocalStorage.instance.read(StorageKey.zero.name) == null) {
+        LocalStorage.instance.write(StorageKey.zero.name, moves);
+      } else {
+        moves = LocalStorage.instance.read(StorageKey.zero.name);
+      }
+    }
+  }
 
   void _onKeyBoardEvent(BuildContext context, RawKeyEvent event) {
     if (event is RawKeyDownEvent) {
@@ -35,11 +70,12 @@ class GameView extends StatelessWidget {
   Widget build(BuildContext context) {
     //  final responsive = Responsive.of(context);
     // final width = responsive.width;
+
     return ChangeNotifierProvider(
       create: (_) {
         final controller = GameController();
         //todo
-        final image = puzzleOptions[page];
+        final image = puzzleOptions[widget.page];
         controller.changeGrid(
           controller.state.crossAxisCount,
           image.name != 'Numeric' ? image : null,
@@ -50,6 +86,7 @@ class GameView extends StatelessWidget {
             image.soundPath,
           );
         }
+        print(controller.state.crossAxisCount);
         //todo
         controller.onFinish.listen(
           (_) {
@@ -58,6 +95,7 @@ class GameView extends StatelessWidget {
                 milliseconds: 200,
               ),
               () {
+                print(controller.state.crossAxisCount);
                 showWinnerDialog(
                   context,
                   moves: controller.state.moves,
@@ -131,9 +169,39 @@ class GameView extends StatelessWidget {
                                   //     width: width,
                                   //   ),
                                   // ),
-                                  // SizedBox(
-                                  //   height: height * 0.1,
-                                  // ),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ),
+                                  CustomCard(
+                                    width: 1.sw * 0.62,
+                                    widget: Row(
+                                      children: [
+                                        CustomText(
+                                          text: 'best_moves'.tr,
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        SizedBox(
+                                          width: 10.w,
+                                        ),
+                                        const Icon(
+                                          Icons.multiple_stop_rounded,
+                                          size: 27,
+                                        ),
+                                        SizedBox(
+                                          width: 10.w,
+                                        ),
+                                        CustomText(
+                                          text: "10",
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: height * 0.1,
+                                  ),
                                   const TimeAndMoves(),
                                   Padding(
                                     padding: const EdgeInsets.all(20),
