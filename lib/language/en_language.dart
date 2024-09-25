@@ -17,17 +17,20 @@ class EnLanguage {
     'no_data': 'No data found',
     'play': 'Play',
     'sound': 'Sound',
-    'yes': 'Yes',
-    'no': 'No',
+    'yes': 'YES',
+    'no': 'NO',
     'game_over': 'Game Over',
     'are_you_want_to_replay': 'Are you want to replay?',
-    'conglaturation': 'Conglaturation!!!',
-    'level_complete': 'Level completed.',
     'next': 'Next',
     'level': 'Level',
     'choose_player': 'Choose Player',
     'moves': 'moves',
     'start': 'START',
-    'restart': 'RESTART'
+    'restart': 'RESTART',
+    'are_you_sure': 'Are you sure?',
+    'do_you_restart': 'Do you want to restart the current puzzle',
+    'conglaturation': 'Conglaturation!',
+    'completed': 'You have completed the puzzle',
+    'ok': 'OK'
   };
 }

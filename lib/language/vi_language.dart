@@ -19,13 +19,16 @@ class ViLanguage {
     'no': 'KHÔNG',
     'game_over': 'Trò chơi kết thúc',
     'are_you_want_to_replay': 'Bạn có muốn phát lại không?',
-    'conglaturation': 'Chúc mừng!!!',
-    'level_complete': 'Đã hoàn thành cấp độ.',
     'next': 'Kế tiếp',
     'level': 'Mức độ',
     'choose_player': 'Choose Player',
     'moves': 'moves',
     'start': 'START',
-    'restart': 'RESTART'
+    'restart': 'RESTART',
+    'are_you_sure': 'Are you sure?',
+    'do_you_restart': 'Do you want to restart the current puzzle',
+    'conglaturation': 'Conglaturation!',
+    'completed': 'You have completed the puzzle',
+    'ok': 'OK'
   };
 }

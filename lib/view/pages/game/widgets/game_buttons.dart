@@ -34,8 +34,10 @@ class GameButtons extends StatelessWidget {
           MyTextIconButton(
             height: buttonHeight,
             onPressed: () => _reset(context),
-            icon: const Icon(
-              Icons.replay_rounded,
+            icon: Icon(
+              state.status == GameStatus.created
+                  ? Icons.play_arrow
+                  : Icons.replay_rounded,
             ),
             // label: state.status == GameStatus.created
             //     ? S.current.start

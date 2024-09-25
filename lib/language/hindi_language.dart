@@ -21,13 +21,16 @@ class HiLanguage {
     'no': 'नहीं',
     'game_over': 'खेल खत्म',
     'are_you_want_to_replay': 'क्या आप दोबारा खेलना चाहते हैं?',
-    'conglaturation': 'बधाई!!!',
-    'level_complete': 'स्तर पूर्ण।',
     'next': 'अगला',
     'level': 'स्तर',
     'choose_player': 'Choose Player',
     'moves': 'moves',
     'start': 'START',
-    'restart': 'RESTART'
+    'restart': 'RESTART',
+    'are_you_sure': 'Are you sure?',
+    'do_you_restart': 'Do you want to restart the current puzzle',
+    'conglaturation': 'Conglaturation!',
+    'completed': 'You have completed the puzzle',
+    'ok': 'OK'
   };
 }

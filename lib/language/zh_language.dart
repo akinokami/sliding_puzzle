@@ -21,13 +21,16 @@ class ZhLanguage {
     'no': '不',
     'game_over': '遊戲結束',
     'are_you_want_to_replay': '你想重播嗎？',
-    'conglaturation': '恭喜!!!',
-    'level_complete': '等級完成。',
     'next': '下一個',
     'level': '等級',
     'choose_player': 'Choose Player',
     'moves': 'moves',
     'start': 'START',
-    'restart': 'RESTART'
+    'restart': 'RESTART',
+    'are_you_sure': 'Are you sure?',
+    'do_you_restart': 'Do you want to restart the current puzzle',
+    'conglaturation': 'Conglaturation!',
+    'completed': 'You have completed the puzzle',
+    'ok': 'OK'
   };
 }
