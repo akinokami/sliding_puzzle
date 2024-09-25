@@ -23,14 +23,14 @@ class ZhLanguage {
     'are_you_want_to_replay': '你想重播嗎？',
     'next': '下一個',
     'level': '等級',
-    'choose_player': 'Choose Player',
-    'moves': 'moves',
-    'start': 'START',
-    'restart': 'RESTART',
-    'are_you_sure': 'Are you sure?',
-    'do_you_restart': 'Do you want to restart the current puzzle',
-    'conglaturation': 'Conglaturation!',
-    'completed': 'You have completed the puzzle',
-    'ok': 'OK'
+    'choose_player': '選擇玩家',
+    'moves': '動作',
+    'start': '開始',
+    'restart': '重啟',
+    'are_you_sure': '你確定嗎?',
+    'do_you_restart': '你想重新開始目前的拼圖嗎',
+    'conglaturation': '恭喜!',
+    'completed': '你已經完成了拼圖',
+    'ok': '好的'
   };
 }
