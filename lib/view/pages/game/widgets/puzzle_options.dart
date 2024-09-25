@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sliding_puzzle/services/repositories_impl/images_repository_impl.dart';
-import 'package:sliding_puzzle/ui/pages/game/controller/game_controller.dart';
-import 'package:sliding_puzzle/ui/utils/colors.dart';
+import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
+import 'package:sliding_puzzle/view/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../utils/dark_mode_extension.dart';

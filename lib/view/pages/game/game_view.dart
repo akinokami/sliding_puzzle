@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sliding_puzzle/models/move_to.dart';
-import 'package:sliding_puzzle/ui/pages/game/controller/game_controller.dart';
-import 'package:sliding_puzzle/ui/pages/game/widgets/background.dart';
-import 'package:sliding_puzzle/ui/pages/game/widgets/game_app_bar.dart';
-import 'package:sliding_puzzle/ui/pages/game/widgets/game_buttons.dart';
-import 'package:sliding_puzzle/ui/pages/game/widgets/puzzle_interactor.dart';
-import 'package:sliding_puzzle/ui/pages/game/widgets/puzzle_options.dart';
-import 'package:sliding_puzzle/ui/pages/game/widgets/time_and_moves.dart';
-import 'package:sliding_puzzle/ui/pages/game/widgets/winner_dialog.dart';
-import 'package:sliding_puzzle/ui/utils/responsive.dart';
+import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
+import 'package:sliding_puzzle/view/pages/game/widgets/background.dart';
+import 'package:sliding_puzzle/view/pages/game/widgets/game_app_bar.dart';
+import 'package:sliding_puzzle/view/pages/game/widgets/game_buttons.dart';
+import 'package:sliding_puzzle/view/pages/game/widgets/puzzle_interactor.dart';
+import 'package:sliding_puzzle/view/pages/game/widgets/puzzle_options.dart';
+import 'package:sliding_puzzle/view/pages/game/widgets/time_and_moves.dart';
+import 'package:sliding_puzzle/view/pages/game/widgets/winner_dialog.dart';
+import 'package:sliding_puzzle/view/utils/responsive.dart';
 import 'package:provider/provider.dart';
 
 class GameView extends StatelessWidget {

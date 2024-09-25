@@ -2,9 +2,9 @@ import 'dart:typed_data';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:sliding_puzzle/models/tile.dart';
-import 'package:sliding_puzzle/ui/pages/game/controller/game_state.dart';
-import 'package:sliding_puzzle/ui/utils/colors.dart';
-import 'package:sliding_puzzle/ui/utils/dark_mode_extension.dart';
+import 'package:sliding_puzzle/view/pages/game/controller/game_state.dart';
+import 'package:sliding_puzzle/view/utils/colors.dart';
+import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
 
 /// widget to render every tile in the puzzle
 class PuzzleTile extends StatefulWidget {

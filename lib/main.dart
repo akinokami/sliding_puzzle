@@ -3,11 +3,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_puzzle/generated/l10n.dart';
 import 'package:sliding_puzzle/src/inject_dependencies.dart';
-import 'package:sliding_puzzle/ui/global/controllers/theme_controller.dart';
-import 'package:sliding_puzzle/ui/routes/app_routes.dart';
-import 'package:sliding_puzzle/ui/routes/routes.dart';
+import 'package:sliding_puzzle/view/global/controllers/theme_controller.dart';
+import 'package:sliding_puzzle/view/routes/app_routes.dart';
+import 'package:sliding_puzzle/view/routes/routes.dart';
 import 'package:url_strategy/url_strategy.dart';
-import 'ui/global/widgets/max_text_scale_factor.dart';
+import 'view/global/widgets/max_text_scale_factor.dart';
 
 void main() async {
   setPathUrlStrategy();
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           ],
           debugShowCheckedModeBanner: false,
           themeMode: controller.themeMode,
-          theme: controller.lightTheme,
+          // theme: controller.lightTheme,
           darkTheme: controller.darkTheme,
           initialRoute: Routes.splash,
           routes: appRoutes,

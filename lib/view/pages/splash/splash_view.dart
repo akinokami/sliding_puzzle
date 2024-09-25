@@ -4,11 +4,11 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sliding_puzzle/services/repositories_impl/images_repository_impl.dart';
-import 'package:sliding_puzzle/ui/pages/game/game_view.dart';
-import 'package:sliding_puzzle/ui/pages/splash/circle_transition_clipper.dart';
-import 'package:sliding_puzzle/ui/utils/colors.dart';
-import 'package:sliding_puzzle/ui/utils/dark_mode_extension.dart';
-import 'package:sliding_puzzle/ui/utils/responsive.dart';
+import 'package:sliding_puzzle/view/pages/game/game_view.dart';
+import 'package:sliding_puzzle/view/pages/splash/circle_transition_clipper.dart';
+import 'package:sliding_puzzle/view/utils/colors.dart';
+import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
+import 'package:sliding_puzzle/view/utils/responsive.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);

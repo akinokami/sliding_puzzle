@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_puzzle/generated/l10n.dart';
-import 'package:sliding_puzzle/ui/global/widgets/max_text_scale_factor.dart';
-import 'package:sliding_puzzle/ui/icons/puzzle_icons.dart';
-import 'package:sliding_puzzle/ui/pages/game/controller/game_controller.dart';
-import 'package:sliding_puzzle/ui/utils/time_parser.dart';
+import 'package:sliding_puzzle/view/global/widgets/max_text_scale_factor.dart';
+import 'package:sliding_puzzle/view/icons/puzzle_icons.dart';
+import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
+import 'package:sliding_puzzle/view/utils/time_parser.dart';
 import 'package:provider/provider.dart';
 
 /// widget to show the time and the moves counter

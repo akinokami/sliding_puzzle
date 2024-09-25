@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sliding_puzzle/ui/global/controllers/theme_controller.dart';
-import 'package:sliding_puzzle/ui/global/widgets/my_icon_button.dart';
-import 'package:sliding_puzzle/ui/icons/puzzle_icons.dart';
-import 'package:sliding_puzzle/ui/pages/game/controller/game_controller.dart';
-import 'package:sliding_puzzle/ui/utils/dark_mode_extension.dart';
-import 'package:sliding_puzzle/ui/utils/platform.dart';
+import 'package:sliding_puzzle/view/global/controllers/theme_controller.dart';
+import 'package:sliding_puzzle/view/global/widgets/my_icon_button.dart';
+import 'package:sliding_puzzle/view/icons/puzzle_icons.dart';
+import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
+import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
+import 'package:sliding_puzzle/view/utils/platform.dart';
 import 'package:provider/provider.dart';
 
 const whiteFlutterLogoColorFilter = ColorFilter.matrix(

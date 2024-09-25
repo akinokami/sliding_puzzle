@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:sliding_puzzle/services/repositories/settings_repository.dart';
-import 'package:sliding_puzzle/ui/utils/colors.dart';
+import 'package:sliding_puzzle/view/utils/colors.dart';
 
 class ThemeController extends ChangeNotifier {
   final SettingsRepository _settings = GetIt.I.get();

@@ -9,7 +9,7 @@ import 'package:sliding_puzzle/models/puzzle_image.dart';
 import 'package:sliding_puzzle/models/tile.dart';
 import 'package:sliding_puzzle/services/repositories/audio_repository.dart';
 import 'package:sliding_puzzle/services/repositories/images_repository.dart';
-import 'package:sliding_puzzle/ui/pages/game/controller/game_state.dart';
+import 'package:sliding_puzzle/view/pages/game/controller/game_state.dart';
 
 class GameController extends ChangeNotifier {
   final ImagesRepository _imagesRepository = GetIt.I.get();

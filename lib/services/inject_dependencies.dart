@@ -3,12 +3,12 @@ import 'package:get_it/get_it.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../services/repositories_impl/audio_repository_impl.dart';
-import '../services/repositories_impl/images_repository_impl.dart';
-import '../services/repositories_impl/settings_repository_impl.dart';
-import '../services/repositories/audio_repository.dart';
-import '../services/repositories/images_repository.dart';
-import '../services/repositories/settings_repository.dart';
+import 'repositories_impl/audio_repository_impl.dart';
+import 'repositories_impl/images_repository_impl.dart';
+import 'repositories_impl/settings_repository_impl.dart';
+import 'repositories/audio_repository.dart';
+import 'repositories/images_repository.dart';
+import 'repositories/settings_repository.dart';
 
 Future<void> injectDependencies() async {
   final preferences = await SharedPreferences.getInstance();

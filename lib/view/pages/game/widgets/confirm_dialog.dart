@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_puzzle/generated/l10n.dart';
-import 'package:sliding_puzzle/ui/global/widgets/up_to_down.dart';
-import 'package:sliding_puzzle/ui/utils/colors.dart';
-import 'package:sliding_puzzle/ui/utils/dark_mode_extension.dart';
+import 'package:sliding_puzzle/view/global/widgets/up_to_down.dart';
+import 'package:sliding_puzzle/view/utils/colors.dart';
+import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
 
 Future<bool> showConfirmDialog(BuildContext context) async {
   final result = await showDialog<bool>(

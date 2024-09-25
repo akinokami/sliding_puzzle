@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sliding_puzzle/generated/l10n.dart';
-import 'package:sliding_puzzle/ui/global/widgets/my_text_icon_button.dart';
-import 'package:sliding_puzzle/ui/pages/game/controller/game_controller.dart';
-import 'package:sliding_puzzle/ui/pages/game/controller/game_state.dart';
-import 'package:sliding_puzzle/ui/pages/game/widgets/confirm_dialog.dart';
-import 'package:sliding_puzzle/ui/utils/colors.dart';
-import 'package:sliding_puzzle/ui/utils/dark_mode_extension.dart';
-import 'package:sliding_puzzle/ui/utils/responsive.dart';
+import 'package:sliding_puzzle/view/global/widgets/my_text_icon_button.dart';
+import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
+import 'package:sliding_puzzle/view/pages/game/controller/game_state.dart';
+import 'package:sliding_puzzle/view/pages/game/widgets/confirm_dialog.dart';
+import 'package:sliding_puzzle/view/utils/colors.dart';
+import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
+import 'package:sliding_puzzle/view/utils/responsive.dart';
 import 'package:provider/provider.dart';
 
 class GameButtons extends StatelessWidget {

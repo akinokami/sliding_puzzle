@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_puzzle/generated/l10n.dart';
-import 'package:sliding_puzzle/ui/global/widgets/my_text_icon_button.dart';
-import 'package:sliding_puzzle/ui/routes/routes.dart';
+import 'package:sliding_puzzle/view/global/widgets/my_text_icon_button.dart';
+import 'package:sliding_puzzle/view/routes/routes.dart';
 
 class PrivacyView extends StatelessWidget {
   const PrivacyView({Key? key}) : super(key: key);
