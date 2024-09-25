@@ -4,7 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sliding_puzzle/services/repositories_impl/images_repository_impl.dart';
-import 'package:sliding_puzzle/view/pages/game/game_view.dart';
+import 'package:sliding_puzzle/view/pages/choose_card/choose_card_screen.dart';
 import 'package:sliding_puzzle/view/pages/splash/circle_transition_clipper.dart';
 import 'package:sliding_puzzle/view/utils/colors.dart';
 import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
@@ -49,7 +49,8 @@ class _SplashViewState extends State<SplashView>
 
   void _goToGame() {
     final route = PageRouteBuilder(
-      pageBuilder: (_, animation, secondaryAnimation) => const GameView(),
+      pageBuilder: (_, animation, secondaryAnimation) =>
+          const ChooseCardScreen(),
       transitionDuration: const Duration(milliseconds: 1500),
       transitionsBuilder: (
         context,
@@ -149,7 +150,7 @@ class _SplashViewState extends State<SplashView>
                         child: Opacity(
                           opacity: offset.clamp(0, 1),
                           child: Text(
-                            "Jigsaw\npuzzle",
+                            "Sliding\npuzzle",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: titleSize,

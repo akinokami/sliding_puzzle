@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_puzzle/generated/l10n.dart';
 import 'package:sliding_puzzle/services/inject_dependencies.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => ThemeController(),
       child: Consumer<ThemeController>(
-        builder: (_, controller, __) => MaterialApp(
+        builder: (_, controller, __) => GetMaterialApp(
           builder: (_, page) => MaxTextScaleFactor(
             child: page!,
           ),

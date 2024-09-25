@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/route_manager.dart';
 import 'package:sliding_puzzle/models/move_to.dart';
 import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/background.dart';
@@ -13,6 +14,8 @@ import 'package:sliding_puzzle/view/pages/game/widgets/time_and_moves.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/winner_dialog.dart';
 import 'package:sliding_puzzle/view/utils/responsive.dart';
 import 'package:provider/provider.dart';
+
+import '../../global/widgets/my_icon_button.dart';
 
 class GameView extends StatelessWidget {
   const GameView({Key? key}) : super(key: key);
@@ -69,7 +72,25 @@ class GameView extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const GameAppBar(),
+                    //const GameAppBar(),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          MyIconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            iconData: Icons.arrow_back,
+                          ),
+                          MyIconButton(
+                            onPressed: () {},
+                            iconData: Icons.settings,
+                          ),
+                        ],
+                      ),
+                    ),
                     Expanded(
                       child: LayoutBuilder(
                         builder: (_, constraints) {

@@ -43,4 +43,6 @@ class PuzzleIcons {
       IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData dark_mode =
       IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData setting =
+      IconData(0xe57f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
