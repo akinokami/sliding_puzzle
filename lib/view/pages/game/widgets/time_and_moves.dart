@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sliding_puzzle/generated/l10n.dart';
 import 'package:sliding_puzzle/view/global/widgets/max_text_scale_factor.dart';
-import 'package:sliding_puzzle/view/icons/puzzle_icons.dart';
+//import 'package:sliding_puzzle/view/icons/puzzle_icons.dart';
 import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
-import 'package:sliding_puzzle/view/utils/time_parser.dart';
+//import 'package:sliding_puzzle/view/utils/time_parser.dart';
 import 'package:provider/provider.dart';
 
 /// widget to show the time and the moves counter
@@ -54,7 +55,8 @@ class TimeAndMoves extends StatelessWidget {
                     icon!,
                     const SizedBox(width: 5),
                     Text(
-                      "$moves ${S.current.movements}",
+                      // "$moves ${S.current.movements}",
+                      "$moves ${'moves'.tr}",
                       style: textStyle,
                     ),
                   ],

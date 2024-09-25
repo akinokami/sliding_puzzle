@@ -1,13 +1,14 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:sliding_puzzle/generated/l10n.dart';
+import 'package:get/get.dart';
+//import 'package:sliding_puzzle/generated/l10n.dart';
 import 'package:sliding_puzzle/view/global/widgets/my_text_icon_button.dart';
 import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
 import 'package:sliding_puzzle/view/pages/game/controller/game_state.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/confirm_dialog.dart';
 import 'package:sliding_puzzle/view/utils/colors.dart';
-import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
+//import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
 import 'package:sliding_puzzle/view/utils/responsive.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +19,7 @@ class GameButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = context.watch<GameController>();
     final state = controller.state;
-    final isDarkMode = context.isDarkMode;
+    // final isDarkMode = context.isDarkMode;
     final responsive = Responsive.of(context);
     final buttonHeight =
         responsive.dp(3).clamp(kMinInteractiveDimension, 100).toDouble();
@@ -36,21 +37,25 @@ class GameButtons extends StatelessWidget {
             icon: const Icon(
               Icons.replay_rounded,
             ),
-            label: state.status == GameStatus.created
-                ? S.current.start
-                : S.current.restart,
+            // label: state.status == GameStatus.created
+            //     ? S.current.start
+            //     : S.current.restart,
+            label:
+                state.status == GameStatus.created ? 'start'.tr : 'restart'.tr,
           ),
           const SizedBox(width: 20),
           Container(
             decoration: BoxDecoration(
-              color: lightColor.withOpacity(isDarkMode ? 0.3 : 1),
+              color: lightColor.withOpacity(0.3),
+              //lightColor.withOpacity(isDarkMode ? 0.3 : 1),
               borderRadius: BorderRadius.circular(30),
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<int>(
                 itemHeight: buttonHeight,
-                dropdownColor:
-                    (isDarkMode ? darkColor : lightColor).withOpacity(0.9),
+                // dropdownColor:
+                //     (isDarkMode ? darkColor : lightColor).withOpacity(0.9),
+                dropdownColor: darkColor.withOpacity(0.9),
                 borderRadius: BorderRadius.circular(30),
                 icon: Padding(
                   padding: const EdgeInsets.only(
@@ -58,9 +63,10 @@ class GameButtons extends StatelessWidget {
                   ),
                   child: Transform.rotate(
                     angle: 90 * pi / 180,
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_forward_ios_rounded,
-                      color: isDarkMode ? Colors.white : darkColor,
+                      // color: isDarkMode ? Colors.white : darkColor,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -68,14 +74,15 @@ class GameButtons extends StatelessWidget {
                     .map(
                       (e) => DropdownMenuItem(
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
+                          padding: EdgeInsets.symmetric(
                             horizontal: 5,
                           ).copyWith(left: 15),
                           child: Text(
                             "${e}x$e ",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: isDarkMode ? Colors.white : darkColor,
+                              color: //isDarkMode ? Colors.white : darkColor,
+                                  Colors.white,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
