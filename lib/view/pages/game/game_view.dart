@@ -4,21 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';
 import 'package:sliding_puzzle/models/move_to.dart';
+import 'package:sliding_puzzle/services/repositories_impl/images_repository_impl.dart';
 import 'package:sliding_puzzle/view/pages/game/controller/game_controller.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/background.dart';
-import 'package:sliding_puzzle/view/pages/game/widgets/game_app_bar.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/game_buttons.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/puzzle_interactor.dart';
-import 'package:sliding_puzzle/view/pages/game/widgets/puzzle_options.dart';
+//import 'package:sliding_puzzle/view/pages/game/widgets/puzzle_options.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/time_and_moves.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/winner_dialog.dart';
-import 'package:sliding_puzzle/view/utils/responsive.dart';
+// import 'package:sliding_puzzle/view/utils/responsive.dart';
 import 'package:provider/provider.dart';
 
 import '../../global/widgets/my_icon_button.dart';
 
 class GameView extends StatelessWidget {
-  const GameView({Key? key}) : super(key: key);
+  final int page;
+  const GameView({Key? key, required this.page}) : super(key: key);
 
   void _onKeyBoardEvent(BuildContext context, RawKeyEvent event) {
     if (event is RawKeyDownEvent) {
@@ -31,11 +32,24 @@ class GameView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final responsive = Responsive.of(context);
-    final width = responsive.width;
+    //  final responsive = Responsive.of(context);
+    // final width = responsive.width;
     return ChangeNotifierProvider(
       create: (_) {
         final controller = GameController();
+        //todo
+        final image = puzzleOptions[page];
+        controller.changeGrid(
+          controller.state.crossAxisCount,
+          image.name != 'Numeric' ? image : null,
+        );
+
+        if (image.name != 'Numeric' && controller.state.sound) {
+          controller.audioRepository.play(
+            image.soundPath,
+          );
+        }
+        //todo
         controller.onFinish.listen(
           (_) {
             Timer(
@@ -72,7 +86,6 @@ class GameView extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    //const GameAppBar(),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Row(
@@ -99,25 +112,25 @@ class GameView extends StatelessWidget {
                               (isPortrait ? height * 0.45 : height * 0.5)
                                   .clamp(250, 700)
                                   .toDouble();
-                          final optionsHeight =
-                              (isPortrait ? height * 0.25 : height * 0.2)
-                                  .clamp(120, 200)
-                                  .toDouble();
+                          // final optionsHeight =
+                          //     (isPortrait ? height * 0.25 : height * 0.2)
+                          //         .clamp(120, 200)
+                          //         .toDouble();
 
                           return SizedBox(
                             height: height,
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                                  SizedBox(
-                                    height: optionsHeight,
-                                    child: PuzzleOptions(
-                                      width: width,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: height * 0.1,
-                                  ),
+                                  // SizedBox(
+                                  //   height: optionsHeight,
+                                  //   child: PuzzleOptions(
+                                  //     width: width,
+                                  //   ),
+                                  // ),
+                                  // SizedBox(
+                                  //   height: height * 0.1,
+                                  // ),
                                   const TimeAndMoves(),
                                   Padding(
                                     padding: const EdgeInsets.all(20),

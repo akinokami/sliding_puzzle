@@ -71,9 +71,12 @@ class _PuzzleOptionsState extends State<PuzzleOptions>
           padding: const EdgeInsets.only(top: 15, bottom: 20),
           child: NotificationListener(
             onNotification: (t) {
+              print("t>>>$t");
               if (t is ScrollEndNotification) {
                 if (_page != _pageController.page) {
                   _page = _pageController.page!.round();
+
+                  print("page>>>$_page");
                   final image = puzzleOptions[_page];
                   final controller = context.read<GameController>();
                   controller.changeGrid(

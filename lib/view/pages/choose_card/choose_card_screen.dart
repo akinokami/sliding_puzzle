@@ -51,8 +51,9 @@ class ChooseCardScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return InkWell(
                           onTap: () {
-                            // goToGame(context);
-                            Get.to(() => const GameView());
+                            Get.to(() => GameView(
+                                  page: index,
+                                ));
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
