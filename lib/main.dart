@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:sliding_puzzle/generated/l10n.dart';
 import 'package:sliding_puzzle/language/languages.dart';
 import 'package:sliding_puzzle/services/inject_dependencies.dart';
 import 'package:sliding_puzzle/services/local_storage.dart';
