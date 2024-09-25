@@ -201,7 +201,7 @@ class _SplashViewState extends State<SplashView>
               child: Transform.rotate(
                 angle: math.pi,
                 child: Image.asset(
-                  'assets/images/jungle.png',
+                  'assets/images/grass.png',
                   width: double.infinity,
                   color: Colors.primaries[8].withOpacity(0.3),
                 ),

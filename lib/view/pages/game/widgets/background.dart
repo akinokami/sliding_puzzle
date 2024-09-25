@@ -29,7 +29,7 @@ class GameBackground extends StatelessWidget {
           child: Transform.rotate(
             angle: pi,
             child: Image.asset(
-              'assets/images/jungle.png',
+              'assets/images/grass.png',
               color: Colors.primaries[8].withOpacity(0.1),
             ),
           ),

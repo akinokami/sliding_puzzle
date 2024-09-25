@@ -37,6 +37,8 @@ class GameController extends ChangeNotifier {
 
   Puzzle get puzzle => _state.puzzle;
 
+  final xCount = ValueNotifier<int>(3);
+
   void onTileTapped(Tile tile) {
     final canMove = puzzle.canMove(tile.position);
 
@@ -105,7 +107,7 @@ class GameController extends ChangeNotifier {
   ) async {
     _timer?.cancel();
     time.value = 0;
-
+    xCount.value = crossAxisCount;
     List<Uint8List>? segmentedImage;
 
     if (image != null) {
