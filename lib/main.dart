@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_puzzle/generated/l10n.dart';
-import 'package:sliding_puzzle/src/inject_dependencies.dart';
+import 'package:sliding_puzzle/services/inject_dependencies.dart';
 import 'package:sliding_puzzle/view/global/controllers/theme_controller.dart';
 import 'package:sliding_puzzle/view/routes/app_routes.dart';
 import 'package:sliding_puzzle/view/routes/routes.dart';
