@@ -80,7 +80,7 @@ flutter:
     - assets/images/numeric-puzzle.png
     - assets/rive/winner.riv
     - assets/sounds/
-    - assets/animals/
+    - assets/players/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

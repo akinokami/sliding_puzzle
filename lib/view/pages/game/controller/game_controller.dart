@@ -21,8 +21,8 @@ class GameController extends ChangeNotifier {
     solved: false,
     moves: 0,
     status: GameStatus.created,
-    sound: true,
-    vibration: true,
+    sound: false, //todo
+    vibration: false, //todo
   );
 
   final ValueNotifier<int> time = ValueNotifier(0);
