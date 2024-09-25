@@ -17,7 +17,7 @@ class TimeAndMoves extends StatelessWidget {
       fontWeight: FontWeight.w600,
     );
 
-    final time = Provider.of<GameController>(context, listen: false).time;
+    // final time = Provider.of<GameController>(context, listen: false).time;
     return MaxTextScaleFactor(
       max: 1,
       child: ConstrainedBox(
@@ -25,26 +25,27 @@ class TimeAndMoves extends StatelessWidget {
           maxWidth: 500,
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ValueListenableBuilder<int>(
-              valueListenable: time,
-              builder: (_, time, icon) {
-                return Row(
-                  children: [
-                    icon!,
-                    Text(
-                      " ${parseTime(time)}",
-                      style: textStyle,
-                    ),
-                  ],
-                );
-              },
-              child: const Icon(
-                PuzzleIcons.watch,
-                size: 25,
-              ),
-            ),
+            // ValueListenableBuilder<int>(
+            //   valueListenable: time,
+            //   builder: (_, time, icon) {
+            //     return Row(
+            //       children: [
+            //         icon!,
+            //         Text(
+            //           " ${parseTime(time)}",
+            //           style: textStyle,
+            //         ),
+            //       ],
+            //     );
+            //   },
+            //   child: const Icon(
+            //     PuzzleIcons.watch,
+            //     size: 25,
+            //   ),
+            // ),
+
             Selector<GameController, int>(
               builder: (_, moves, icon) {
                 return Row(

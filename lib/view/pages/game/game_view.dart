@@ -14,6 +14,7 @@ import 'package:sliding_puzzle/view/pages/game/widgets/time_and_moves.dart';
 import 'package:sliding_puzzle/view/pages/game/widgets/winner_dialog.dart';
 // import 'package:sliding_puzzle/view/utils/responsive.dart';
 import 'package:provider/provider.dart';
+import 'package:sliding_puzzle/view/pages/settings/setting_screen.dart';
 
 import '../../global/widgets/my_icon_button.dart';
 
@@ -98,7 +99,9 @@ class GameView extends StatelessWidget {
                             iconData: Icons.arrow_back,
                           ),
                           MyIconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(() => const SettingScreeen());
+                            },
                             iconData: Icons.settings,
                           ),
                         ],

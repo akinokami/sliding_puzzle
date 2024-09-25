@@ -1,10 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:sliding_puzzle/services/repositories_impl/images_repository_impl.dart';
 import 'package:sliding_puzzle/view/global/widgets/my_icon_button.dart';
 import 'package:sliding_puzzle/view/pages/game/game_view.dart';
+import 'package:sliding_puzzle/view/pages/settings/setting_screen.dart';
 import 'package:sliding_puzzle/view/utils/colors.dart';
-import 'package:sliding_puzzle/view/utils/dark_mode_extension.dart';
 
 class ChooseCardScreen extends StatelessWidget {
   const ChooseCardScreen({super.key});
@@ -13,10 +15,11 @@ class ChooseCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // final responsive = Responsive.of(context);
     // final width = responsive.width;
-    final isDarkMode = context.isDarkMode;
+    //final isDarkMode = context.isDarkMode;
     return SafeArea(
       child: Scaffold(
-          backgroundColor: context.isDarkMode ? darkColor : lightColor2,
+          backgroundColor:
+              darkColor, // context.isDarkMode ? darkColor : lightColor2,
           body: OrientationBuilder(builder: (_, orientation) {
             // final isPortrait = orientation == Orientation.portrait;
             return Padding(
@@ -27,11 +30,22 @@ class ChooseCardScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       MyIconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          exit(0);
+                        },
                         iconData: Icons.close,
                       ),
+                      Text(
+                        'choose_player'.tr,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                       MyIconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => const SettingScreeen());
+                        },
                         iconData: Icons.settings,
                       ),
                     ],
@@ -58,8 +72,9 @@ class ChooseCardScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Material(
-                              color: lightColor
-                                  .withOpacity(isDarkMode ? 0.3 : 0.5),
+                              color: lightColor.withOpacity(0.3),
+                              // color: lightColor
+                              //     .withOpacity(isDarkMode ? 0.3 : 0.5),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
