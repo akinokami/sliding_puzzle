@@ -39,6 +39,10 @@ class GameController extends ChangeNotifier {
 
   final xCount = ValueNotifier<int>(3);
 
+  bool _isLoading = false;
+
+  bool get isLoading => _isLoading;
+
   void onTileTapped(Tile tile) {
     final canMove = puzzle.canMove(tile.position);
 
@@ -105,6 +109,7 @@ class GameController extends ChangeNotifier {
     int crossAxisCount,
     PuzzleImage? image,
   ) async {
+    _isLoading = true;
     _timer?.cancel();
     time.value = 0;
     xCount.value = crossAxisCount;
@@ -132,6 +137,7 @@ class GameController extends ChangeNotifier {
       vibration: state.vibration,
     );
     _state = newState;
+    _isLoading = false;
     notifyListeners();
   }
 

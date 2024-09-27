@@ -21,39 +21,9 @@ import 'package:sliding_puzzle/view/widget/custom_card.dart';
 
 import '../../global/widgets/my_icon_button.dart';
 
-class GameView extends StatefulWidget {
+class GameView extends StatelessWidget {
   final int page;
   const GameView({Key? key, required this.page}) : super(key: key);
-
-  @override
-  State<GameView> createState() => _GameViewState();
-}
-
-class _GameViewState extends State<GameView> {
-  final controller = GameController();
-  bool isLoading = true;
-
-  @override
-  void initState() {
-    //todo
-    final image = puzzleOptions[widget.page];
-    controller.changeGrid(
-      controller.state.crossAxisCount,
-      image.name != 'Numeric' ? image : null,
-    );
-
-    if (image.name != 'Numeric' && controller.state.sound) {
-      controller.audioRepository.play(
-        image.soundPath,
-      );
-    }
-    Future.delayed(const Duration(seconds: 1), () {
-      isLoading = false;
-      setState(() {});
-    });
-    //todo
-    super.initState();
-  }
 
   // @override
   void _onKeyBoardEvent(BuildContext context, RawKeyEvent event) {
@@ -69,9 +39,22 @@ class _GameViewState extends State<GameView> {
   Widget build(BuildContext context) {
     //  final responsive = Responsive.of(context);
     // final width = responsive.width;
-
+    final controller = GameController();
     return ChangeNotifierProvider(
       create: (_) {
+        //todo
+        final image = puzzleOptions[page];
+        controller.changeGrid(
+          controller.state.crossAxisCount,
+          image.name != 'Numeric' ? image : null,
+        );
+
+        if (image.name != 'Numeric' && controller.state.sound) {
+          controller.audioRepository.play(
+            image.soundPath,
+          );
+        }
+        //todo
         controller.onFinish.listen(
           (_) {
             Timer(
@@ -99,124 +82,129 @@ class _GameViewState extends State<GameView> {
       ),
       child: GameBackground(
         child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: isLoading
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : SafeArea(
-                  child: OrientationBuilder(
-                    builder: (_, orientation) {
-                      final isPortrait = orientation == Orientation.portrait;
+            backgroundColor: Colors.transparent,
+            body: Consumer<GameController>(
+                builder: (context, loadingProvider, child) {
+              return controller.isLoading
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : SafeArea(
+                      child: OrientationBuilder(
+                        builder: (_, orientation) {
+                          final isPortrait =
+                              orientation == Orientation.portrait;
 
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MyIconButton(
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  iconData: Icons.arrow_back,
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    MyIconButton(
+                                      onPressed: () {
+                                        Get.back();
+                                      },
+                                      iconData: Icons.arrow_back,
+                                    ),
+                                    MyIconButton(
+                                      onPressed: () {
+                                        Get.to(() => const SettingScreeen());
+                                      },
+                                      iconData: Icons.settings,
+                                    ),
+                                  ],
                                 ),
-                                MyIconButton(
-                                  onPressed: () {
-                                    Get.to(() => const SettingScreeen());
-                                  },
-                                  iconData: Icons.settings,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: LayoutBuilder(
-                              builder: (_, constraints) {
-                                final height = constraints.maxHeight;
-                                final puzzleHeight =
-                                    (isPortrait ? height * 0.45 : height * 0.5)
+                              ),
+                              Expanded(
+                                child: LayoutBuilder(
+                                  builder: (_, constraints) {
+                                    final height = constraints.maxHeight;
+                                    final puzzleHeight = (isPortrait
+                                            ? height * 0.45
+                                            : height * 0.5)
                                         .clamp(250, 700)
                                         .toDouble();
-                                // final optionsHeight =
-                                //     (isPortrait ? height * 0.25 : height * 0.2)
-                                //         .clamp(120, 200)
-                                //         .toDouble();
+                                    // final optionsHeight =
+                                    //     (isPortrait ? height * 0.25 : height * 0.2)
+                                    //         .clamp(120, 200)
+                                    //         .toDouble();
 
-                                return SizedBox(
-                                  height: height,
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      children: [
-                                        // SizedBox(
-                                        //   height: optionsHeight,
-                                        //   child: PuzzleOptions(
-                                        //     width: width,
-                                        //   ),
-                                        // ),
-                                        // SizedBox(
-                                        //   height: 10.h,
-                                        // ),
-                                        // CustomCard(
-                                        //   width: 1.sw * 0.62,
-                                        //   widget: Row(
-                                        //     children: [
-                                        //       CustomText(
-                                        //         text: 'best_moves'.tr,
-                                        //         fontSize: 20.sp,
-                                        //         fontWeight: FontWeight.w600,
-                                        //       ),
-                                        //       SizedBox(
-                                        //         width: 10.w,
-                                        //       ),
-                                        //       const Icon(
-                                        //         Icons.multiple_stop_rounded,
-                                        //         size: 27,
-                                        //       ),
-                                        //       SizedBox(
-                                        //         width: 10.w,
-                                        //       ),
-                                        //       CustomText(
-                                        //         text: "10",
-                                        //         fontSize: 20.sp,
-                                        //         fontWeight: FontWeight.w600,
-                                        //       )
-                                        //     ],
-                                        //   ),
-                                        // ),
-                                        SizedBox(
-                                          height: height * 0.1,
-                                        ),
-                                        CustomCard(
-                                          width: 1.sw * 0.62,
-                                          widget: const TimeAndMoves(),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(20),
-                                          child: SizedBox(
-                                            height: puzzleHeight,
-                                            child: const AspectRatio(
-                                              aspectRatio: 1,
-                                              child: PuzzleInteractor(),
+                                    return SizedBox(
+                                      height: height,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          children: [
+                                            // SizedBox(
+                                            //   height: optionsHeight,
+                                            //   child: PuzzleOptions(
+                                            //     width: width,
+                                            //   ),
+                                            // ),
+                                            // SizedBox(
+                                            //   height: 10.h,
+                                            // ),
+                                            // CustomCard(
+                                            //   width: 1.sw * 0.62,
+                                            //   widget: Row(
+                                            //     children: [
+                                            //       CustomText(
+                                            //         text: 'best_moves'.tr,
+                                            //         fontSize: 20.sp,
+                                            //         fontWeight: FontWeight.w600,
+                                            //       ),
+                                            //       SizedBox(
+                                            //         width: 10.w,
+                                            //       ),
+                                            //       const Icon(
+                                            //         Icons.multiple_stop_rounded,
+                                            //         size: 27,
+                                            //       ),
+                                            //       SizedBox(
+                                            //         width: 10.w,
+                                            //       ),
+                                            //       CustomText(
+                                            //         text: "10",
+                                            //         fontSize: 20.sp,
+                                            //         fontWeight: FontWeight.w600,
+                                            //       )
+                                            //     ],
+                                            //   ),
+                                            // ),
+                                            SizedBox(
+                                              height: height * 0.1,
                                             ),
-                                          ),
+                                            CustomCard(
+                                              width: 1.sw * 0.62,
+                                              widget: const TimeAndMoves(),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(20),
+                                              child: SizedBox(
+                                                height: puzzleHeight,
+                                                child: const AspectRatio(
+                                                  aspectRatio: 1,
+                                                  child: PuzzleInteractor(),
+                                                ),
+                                              ),
+                                            ),
+                                            const GameButtons(),
+                                          ],
                                         ),
-                                        const GameButtons(),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          )
-                        ],
-                      );
-                    },
-                  ),
-                ),
-        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              )
+                            ],
+                          );
+                        },
+                      ),
+                    );
+            })),
       ),
     );
   }
