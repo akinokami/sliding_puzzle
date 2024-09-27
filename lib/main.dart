@@ -40,16 +40,6 @@ class MyApp extends StatelessWidget {
               builder: (_, page) => MaxTextScaleFactor(
                 child: page!,
               ),
-              // localizationsDelegates: const [
-              //   S.delegate,
-              //   GlobalMaterialLocalizations.delegate,
-              //   GlobalWidgetsLocalizations.delegate,
-              //   GlobalCupertinoLocalizations.delegate,
-              // ],
-              // supportedLocales: const [
-              //   Locale('en'),
-              //   Locale('es'),
-              // ],
               translations: Languages(),
               locale: Global.language == Language.zh.name
                   ? const Locale('zh', 'CN')
@@ -61,7 +51,6 @@ class MyApp extends StatelessWidget {
               fallbackLocale: const Locale('en', 'US'),
               debugShowCheckedModeBanner: false,
               themeMode: controller.themeMode,
-              // theme: controller.lightTheme,
               darkTheme: controller.darkTheme,
               initialRoute: Routes.splash,
               routes: appRoutes,
