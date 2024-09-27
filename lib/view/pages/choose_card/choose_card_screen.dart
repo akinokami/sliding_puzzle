@@ -13,6 +13,7 @@ import 'package:sliding_puzzle/view/utils/colors.dart';
 import 'package:sliding_puzzle/view/widget/custom_text.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../../../controller/sound_controller.dart';
 import '../../global/global.dart';
 import '../../widget/custom_button.dart';
 
@@ -139,6 +140,8 @@ class _ChooseCardScreenState extends State<ChooseCardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final soundController = Get.put(SoundController());
+    soundController.playSound();
     // final responsive = Responsive.of(context);
     // final width = responsive.width;
     //final isDarkMode = context.isDarkMode;
